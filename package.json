@@ -1,7 +1,7 @@
 {
-  "name": "module-ts-template",
+  "name": "@macchiatojs/logger",
   "version": "0.0.0",
-  "description": "",
+  "description": "Macchiato.js logger based on pino",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -23,7 +23,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mongodb-helpers/module-ts-template.git"
+    "url": "git+https://github.com/macchiatojs/logger.git"
   },
   "keywords": [],
   "license": "MIT",
@@ -32,13 +32,33 @@
     "email": "imed-jaberi@outlook.com",
     "url": "https://www.3imed-jaberi.com"
   },
-  "dependencies": {},
-  "devDependencies": {},
+  "dependencies": {
+    "@macchiatojs/kernel": "^0.19.0",
+    "pino-http": "^6.0.0"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.22",
+    "@types/mocha": "^9.0.0",
+    "@types/node": "^16.11.6",
+    "@types/pino": "6.3",
+    "@types/pino-http": "^5.8.1",
+    "@types/supertest": "^2.0.11",
+    "@typescript-eslint/eslint-plugin": "^4.29.2",
+    "@typescript-eslint/parser": "^4.29.2",
+    "chai": "^4.3.4",
+    "eslint": "^7.32.0",
+    "mocha": "^9.1.3",
+    "nyc": "^15.1.0",
+    "rimraf": "^3.0.2",
+    "supertest": "^6.1.6",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.4.4"
+  },
   "engines": {
     "node": ">= 14"
   },
   "bugs": {
-    "url": "https://github.com/mongodb-helpers/module-ts-template/issues"
+    "url": "https://github.com/macchiatojs/logger/issues"
   },
-  "homepage": "https://github.com/mongodb-helpers/module-ts-template#readme"
+  "homepage": "https://github.com/macchiatojs/logger#readme"
 }
