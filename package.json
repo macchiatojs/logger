@@ -1,6 +1,6 @@
 {
   "name": "@macchiatojs/logger",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Macchiato.js logger based on pino",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -40,8 +40,6 @@
     "@types/chai": "^4.2.22",
     "@types/mocha": "^9.0.0",
     "@types/node": "^16.11.6",
-    "@types/pino": "6.3",
-    "@types/pino-http": "^5.8.1",
     "@types/supertest": "^2.0.11",
     "@typescript-eslint/eslint-plugin": "^4.29.2",
     "@typescript-eslint/parser": "^4.29.2",

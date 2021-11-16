@@ -13,19 +13,20 @@
  */
 
 import pinoHttp from 'pino-http'
-import type { Options } from 'pino-http'
+// import type { Options } from 'pino-http'
 import type { MacchiatoHandler, Context, Request, Response, Next } from '@macchiatojs/kernel'
 
 /**
  * @types
  */
 
-interface DestinationStream {
+interface MacchiatoLoggerDestinationStream {
   write(msg: string): void
 }
 
-interface MacchiatoLoggerOptions extends Options {
+interface MacchiatoLoggerOptions /* extends Options */ {
   expressify?: boolean
+  [key: string]: unknown
 }
 
 /**
@@ -35,14 +36,14 @@ interface MacchiatoLoggerOptions extends Options {
  * @api public
  */
 
-function logger(opts?: MacchiatoLoggerOptions, stream?: DestinationStream): MacchiatoHandler {
+function logger(opts?: MacchiatoLoggerOptions, stream?: MacchiatoLoggerDestinationStream): MacchiatoHandler {
   const expressify = opts?.expressify ?? true
 
   const wrap = pinoHttp(opts, stream)
 
   const pino = (ctx: Context, next: Next) => {
     wrap(ctx.request.raw, ctx.response.raw)
-    ctx['log'] = ctx.request['log'] = ctx.response['log'] = ctx.request.raw.log
+    ctx['log'] = ctx.request['log'] = ctx.response['log'] = ctx.request.raw['log']
 
     return next().catch((error) => {
       // this behave already tested in the kernel
