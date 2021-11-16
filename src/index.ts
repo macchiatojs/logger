@@ -24,7 +24,7 @@ interface DestinationStream {
   write(msg: string): void
 }
 
-interface LoggerOptions extends Options {
+interface MacchiatoLoggerOptions extends Options {
   expressify?: boolean
 }
 
@@ -35,7 +35,7 @@ interface LoggerOptions extends Options {
  * @api public
  */
 
-function logger(opts?: LoggerOptions, stream?: DestinationStream): MacchiatoHandler {
+function logger(opts?: MacchiatoLoggerOptions, stream?: DestinationStream): MacchiatoHandler {
   const expressify = opts?.expressify ?? true
 
   const wrap = pinoHttp(opts, stream)
