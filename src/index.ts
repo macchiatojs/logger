@@ -13,7 +13,7 @@
  */
 
 import pinoHttp from 'pino-http'
-// import type { Options } from 'pino-http'
+import type { Options } from 'pino-http'
 import type { MacchiatoHandler, Context, Request, Response, Next } from '@macchiatojs/kernel'
 
 /**
@@ -24,9 +24,8 @@ interface MacchiatoLoggerDestinationStream {
   write(msg: string): void
 }
 
-interface MacchiatoLoggerOptions /* extends Options */ {
+interface MacchiatoLoggerOptions extends Options {
   expressify?: boolean
-  [key: string]: unknown
 }
 
 /**
@@ -38,7 +37,8 @@ interface MacchiatoLoggerOptions /* extends Options */ {
 
 function logger(opts?: MacchiatoLoggerOptions, stream?: MacchiatoLoggerDestinationStream): MacchiatoHandler {
   const expressify = opts?.expressify ?? true
-
+  delete opts?.expressify
+ 
   const wrap = pinoHttp(opts, stream)
 
   const pino = (ctx: Context, next: Next) => {
@@ -63,5 +63,9 @@ function logger(opts?: MacchiatoLoggerOptions, stream?: MacchiatoLoggerDestinati
 
   return middleware
 }
+
+/**
+ * Expose
+ */
 
 export { logger as default, logger, pinoHttp, pinoHttp as rawLogger }
