@@ -1,5 +1,10 @@
 # CHANGE LOG
 
+### v0.4.0 (10 Apr 2022)
+- update @macchiatojs/kernel from '0.21.0' to '0.24.0'
+- update pino-http from 6.5.0 to 6.6.0
+- update all devDeps.
+
 ### v0.3.0 (09 Jan 2022)
 
 - update @macchiatojs/kernel from '0.19.0' to '0.21.0'
